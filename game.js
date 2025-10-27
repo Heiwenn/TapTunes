@@ -28,10 +28,20 @@ class GameScene extends Scene {
     mouseClicked() {
     }
 
+    load() {
+
+    } 
+
+    unload() {
+        
+    }
+
+
     // ----------------------------------
     // Draw loop (main game logic per frame)
     // ----------------------------------
     draw() {
+
         background(51, 71, 44);
     }
 }

@@ -13,6 +13,8 @@ let current;
 // ----------------------------------
 function setup() {
   createCanvas(windowWidth, windowWidth * aspectRatio); // set up game canvas
+  windowResized();
+
   // Initialize scenes, each gets a reference to switchScene
   scenes.logo = new LogoScene(switchScene);
   scenes.menu = new MenuScene(switchScene);
@@ -26,6 +28,7 @@ function setup() {
 // Change current scene by name
 // ----------------------------------
 function switchScene(nextScene) {
+  current.unload();
   switch (nextScene) {
     case "Logo":
       current = scenes.logo;
@@ -39,6 +42,7 @@ function switchScene(nextScene) {
     default:
       break;
   }
+  current.load();
 }
 
 // ----------------------------------

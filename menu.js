@@ -14,6 +14,7 @@ class MenuScene extends Scene {
 
     constructor(switchScene) {
         super();
+        this.music = loadSound(menuSoundTrack);
     }
 
     // Handle mouse clicks
@@ -22,6 +23,14 @@ class MenuScene extends Scene {
         if (this.startButton.collides(mouseX, mouseY)) {
             this.switchScene("Game");
         }
+    }
+
+    load() {
+        this.music.play();
+    }
+
+    unload() {
+        this.music.stop();
     }
 
     /**

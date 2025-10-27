@@ -4,7 +4,7 @@
  * Interface for a scene and its basic functionalities
  */
 class Scene {
-    constructor () {
+    constructor() {
 
     }
 
@@ -17,11 +17,19 @@ class Scene {
     }
 
     keyReleased() {
-        
+
     }
 
     mouseClicked() {
-        
+
+    }
+
+    load() {
+
+    }
+
+    unload() {
+
     }
 
     draw() {
