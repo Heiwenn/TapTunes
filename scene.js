@@ -24,6 +24,10 @@ class Scene {
 
     }
 
+    mouseMoved() {
+        
+    }
+
     load() {
 
     }

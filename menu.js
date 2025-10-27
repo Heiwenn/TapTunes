@@ -78,16 +78,48 @@ class MenuButton {
         this.y = y;
         this.w = w; 
         this.h = h;
+        this.action = action;
+        this.text = text;
+        this.hovering = false;
     }
 
-    collides() {
+    mouseCollides() {
+        let mX = mouseX / width;
+        let mY = mouseY / height;
+        let insideX = (mX > this.x - this.w / 2) && (mX < this.x + this.w / 2);
+        let insideY = (mY > this.y - this.h / 2) && (mY < this.y + this.h / 2);
 
+        return (insideX && insideY);        
     }
+
+    checkMousePosition() {
+        this.hovering = this.mouseCollides();
+    }
+
+    checkClick() {
+        if (this.hovering) {
+            // Clicked
+        }
+    }
+
 
     draw() {
+        rectMode(CENTER);
         fill(126, 33, 166, 150);
         stroke(255);
-        rect(this.x * width - this.w * width / 2, this.y * height - this.h * height / 2, this.w * width, this.h * height);
+        if (this.hovering) {
+            strokeWeight(3);
+        }
+        rect(this.x * width, this.y * height, this.w * width, this.h * height);
+        strokeWeight(1);
+
+        fill(256);
+        textFont(menuFont);
+        textSize(48);
+        textAlign(CENTER, CENTER);
+        //rectMode(CENTER);
+        text(this.text, this.x * width, this.y * height, this.w * width, this.h * height);
+        rectMode(CORNER);
     }
 }
 
@@ -100,12 +132,27 @@ class MenuScene extends Scene {
     constructor(switchScene) {
         super();
         this.soundVisualizer = new SoundVisualizer(1024, 1);
-        this.playButton = new MenuButton(0.5, 0.5, 0.4, 0.2);
+
+        let buttonHeight = 0.13
+
+        this.playButton = new MenuButton(0.5, 0.4, 0.4, buttonHeight, "action", "PLAY");
+        this.optionsButton = new MenuButton(0.5, 0.55, 0.4, buttonHeight, "action", "OPTIONS");
+        this.tutorialButton = new MenuButton(0.5, 0.7, 0.4, buttonHeight, "action", "TUTORIAL");
+        this.creditsButton = new MenuButton(0.5, 0.85, 0.4, buttonHeight, "action", "CREDITS");
     }
 
     // Handle mouse clicks
     mouseClicked() {
-        
+        // this.playButton.collides();
+        // this.optionsButton.collides();
+        // this.tutorialButton.collides();
+    }
+
+    mouseMoved() {
+        this.playButton.checkMousePosition();
+        this.optionsButton.checkMousePosition();
+        this.tutorialButton.checkMousePosition();
+        this.creditsButton.checkMousePosition();
     }
 
     load() {
@@ -124,7 +171,10 @@ class MenuScene extends Scene {
     draw() {
         background(0);
         // image(bg, 0, 0, width, height);
-        this.soundVisualizer.draw();
+        //this.soundVisualizer.draw();
         this.playButton.draw();
+        this.optionsButton.draw();
+        this.tutorialButton.draw();
+        this.creditsButton.draw();
     }
 }

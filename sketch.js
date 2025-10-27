@@ -68,6 +68,11 @@ function keyReleased() {
   current.keyReleased();
 }
 
+function mouseMoved() {
+  current.mouseMoved();
+  console.log(mouseY);
+}
+
 function windowResized() {
   let winHeight = windowWidth * aspectRatio;
   let winWidth = windowWidth;
@@ -81,4 +86,6 @@ function windowResized() {
 function preload() {
   bg = loadImage(backgroundImage);
   menuMusic = loadSound(menuSoundTrack);
+  menuFont = loadFont(menuFontPath);
+  menuCursor = loadImage(menuCursorPath);
 }
