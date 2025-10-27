@@ -105,10 +105,7 @@ class MenuScene extends Scene {
 
     // Handle mouse clicks
     mouseClicked() {
-        // If start button clicked → switch to Game scene
-        if (this.startButton.collides(mouseX, mouseY)) {
-            this.switchScene("Game");
-        }
+        
     }
 
     load() {
