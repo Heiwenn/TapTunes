@@ -15,6 +15,8 @@ function setup() {
   createCanvas(windowWidth, windowWidth * aspectRatio); // set up game canvas
   windowResized();
 
+  bg = loadImage(backgroundImage);
+
   // Initialize scenes, each gets a reference to switchScene
   scenes.logo = new LogoScene(switchScene);
   scenes.menu = new MenuScene(switchScene);
