@@ -99,7 +99,6 @@ class MenuScene extends Scene {
 
     constructor(switchScene) {
         super();
-        this.music = loadSound(menuSoundTrack);
         this.soundVisualizer = new SoundVisualizer(1024, 1);
         this.playButton = new MenuButton(0.5, 0.5, 0.4, 0.2);
     }
@@ -113,12 +112,12 @@ class MenuScene extends Scene {
     }
 
     load() {
-        this.music.loop();
+        menuMusic.loop();
         bg.filter(BLUR, 20);
     }
 
     unload() {
-        this.music.stop();
+        menuMusic.stop();
     }
 
     /**
