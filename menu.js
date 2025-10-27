@@ -73,7 +73,7 @@ class SoundVisualizer {
 }
 
 class MenuButton {
-    constructor (x, y, w, h, action, text) {
+    constructor (x, y, w, h, action, argument, text) {
         this.x = x;
         this.y = y;
         this.w = w; 
@@ -81,6 +81,7 @@ class MenuButton {
         this.action = action;
         this.text = text;
         this.hovering = false;
+        this.argument = argument;
     }
 
     mouseCollides() {
@@ -98,7 +99,7 @@ class MenuButton {
 
     checkClick() {
         if (this.hovering) {
-            // Clicked
+            this.action(this.argument);
         }
     }
 
@@ -135,17 +136,18 @@ class MenuScene extends Scene {
 
         let buttonHeight = 0.13
 
-        this.playButton = new MenuButton(0.5, 0.4, 0.4, buttonHeight, "action", "PLAY");
-        this.optionsButton = new MenuButton(0.5, 0.55, 0.4, buttonHeight, "action", "OPTIONS");
-        this.tutorialButton = new MenuButton(0.5, 0.7, 0.4, buttonHeight, "action", "TUTORIAL");
-        this.creditsButton = new MenuButton(0.5, 0.85, 0.4, buttonHeight, "action", "CREDITS");
+        this.playButton = new MenuButton(0.5, 0.4, 0.4, buttonHeight, switchScene, "Game", "PLAY");
+        this.optionsButton = new MenuButton(0.5, 0.55, 0.4, buttonHeight, switchScene, "Options", "OPTIONS");
+        this.tutorialButton = new MenuButton(0.5, 0.7, 0.4, buttonHeight, switchScene, "Tutorial", "TUTORIAL");
+        this.creditsButton = new MenuButton(0.5, 0.85, 0.4, buttonHeight, switchScene, "Credits", "CREDITS");
     }
 
     // Handle mouse clicks
     mouseClicked() {
-        // this.playButton.collides();
-        // this.optionsButton.collides();
-        // this.tutorialButton.collides();
+        this.playButton.checkClick();
+        this.optionsButton.checkClick();
+        this.tutorialButton.checkClick();
+        this.creditsButton.checkClick();
     }
 
     mouseMoved() {

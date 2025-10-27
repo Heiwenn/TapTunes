@@ -19,6 +19,9 @@ function setup() {
   scenes.logo = new LogoScene(switchScene);
   scenes.menu = new MenuScene(switchScene);
   scenes.game = new GameScene(switchScene);
+  scenes.credits = new CreditsScene(switchScene);
+  scenes.tutorial = new TutorialScene(switchScene);
+  scenes.options = new OptionsScene(switchScene);
 
   // Start with logo scene
   current = scenes.logo;
@@ -39,6 +42,12 @@ function switchScene(nextScene) {
     case "Game":
       current = scenes.game;
       break;
+    case "Credits":
+      current = scenes.credits;
+    case "Options":
+      current = scenes.options;
+    case "Tutorial":
+      current = scenes.tutorial;
     default:
       break;
   }
@@ -70,7 +79,6 @@ function keyReleased() {
 
 function mouseMoved() {
   current.mouseMoved();
-  console.log(mouseY);
 }
 
 function windowResized() {
