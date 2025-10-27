@@ -118,7 +118,6 @@ class MenuButton {
         textFont(menuFont);
         textSize(48);
         textAlign(CENTER, CENTER);
-        //rectMode(CENTER);
         text(this.text, this.x * width, this.y * height, this.w * width, this.h * height);
         rectMode(CORNER);
     }
@@ -178,5 +177,7 @@ class MenuScene extends Scene {
         this.optionsButton.draw();
         this.tutorialButton.draw();
         this.creditsButton.draw();
+
+        image(menuCursor, mouseX, mouseY, width / 25, width / 25);
     }
 }
