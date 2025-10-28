@@ -15,3 +15,6 @@ var bg;
 var menuMusic;
 var menuFont;
 var menuCursor;
+
+var tapDiameter = 0.05;
+var gameCursorDiameter = 0.03;

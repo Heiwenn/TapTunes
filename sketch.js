@@ -26,7 +26,7 @@ function setup() {
   scenes.options = new OptionsScene(switchScene);
 
   // Start with logo scene
-  current = scenes.logo;
+  current = scenes.tutorial;
 }
 
 // ----------------------------------
