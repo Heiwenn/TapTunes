@@ -26,7 +26,7 @@ function setup() {
   scenes.options = new OptionsScene(switchScene);
 
   // Start with logo scene
-  current = scenes.tutorial;
+  current = scenes.logo;
 }
 
 // ----------------------------------
@@ -98,4 +98,5 @@ function preload() {
   menuMusic = loadSound(menuSoundTrack);
   menuFont = loadFont(menuFontPath);
   menuCursor = loadImage(menuCursorPath);
+  console.log("Done Pre-Loading");
 }
