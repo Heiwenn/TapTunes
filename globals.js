@@ -16,5 +16,10 @@ var menuMusic;
 var menuFont;
 var menuCursor;
 
-var tapDiameter = 0.05;
+var tapDiameter = 0.06;
 var gameCursorDiameter = 0.03;
+
+var perfect = 0.9;
+var great = 0.8;
+var good = 0.6;
+var ok = 0.5;

@@ -255,8 +255,8 @@ class LogoScene extends Scene {
         this.rightAnimation.animate();
         this.bounceAnimation.animate();
 
-        if (frameCount > continueToMenu) {
-            this.switchScene("Menu");
-        }
+        // if (frameCount > continueToMenu) {
+        //     this.switchScene("Menu");
+        // }
     }
 }

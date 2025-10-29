@@ -116,7 +116,7 @@ class MenuButton {
 
         fill(256);
         textFont(menuFont);
-        textSize(48);
+        textSize(width * 0.08);
         textAlign(CENTER, CENTER);
         text(this.text, this.x * width, this.y * height, this.w * width, this.h * height);
         rectMode(CORNER);
@@ -172,7 +172,7 @@ class MenuScene extends Scene {
     draw() {
         background(0);
         // image(bg, 0, 0, width, height);
-        //this.soundVisualizer.draw();
+        this.soundVisualizer.draw();
         this.playButton.draw();
         this.optionsButton.draw();
         this.tutorialButton.draw();
