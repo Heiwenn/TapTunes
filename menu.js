@@ -123,6 +123,97 @@ class MenuButton {
     }
 }
 
+
+class GameSimulation {
+    constructor() {
+        this.tapOne = new Tap(0.1, 0.1, 1, color(188, 49, 247), 1);
+        this.tapTwo = new Tap(0.15, 0.7, 1.5, color(188, 49, 247), 2);
+        this.tapThree = new Tap(0.3, 0.3, 2, color(188, 49, 247), 3);
+        this.tapFour = new Tap(0.5, 0.95, 1.5, color(188, 49, 247), 4);
+        this.tapFive = new Tap(0.7, 0.15, 1.5, color(188, 49, 247), 5);
+        this.tapSix = new Tap(0.9, 0.9, 1.5, color(188, 49, 247), 6);
+
+        this.tapOne.start();
+        this.tapTwo.start();
+        this.tapThree.start();
+        // this.tapFour.start();
+        // this.tapFive.start();
+        // this.tapSix.start();
+
+        this.fourStarted = false;
+        this.fiveStarted = false;
+        this.sixStarted = false;
+
+        this.delay = 90;
+        this.counter = 0;
+    }
+
+    restartTaps() {
+        this.tapOne.start();
+        this.tapTwo.start();
+        this.tapThree.start();
+        // this.tapFour.start();
+        // this.tapFive.start();
+        // this.tapSix.start();
+
+        this.fourStarted = false;
+        this.fiveStarted = false;
+        this.sixStarted = false;
+        
+        this.counter = 0;
+    }
+
+    draw() {
+        this.tapOne.draw();
+        this.tapTwo.draw();
+        this.tapThree.draw();
+        this.tapFour.draw();
+        this.tapFive.draw();
+        this.tapSix.draw();
+
+        if (this.tapOne.done && !this.fourStarted) {
+            this.fourStarted = true;
+            this.tapFour.start();
+        }
+        if (this.tapTwo.done && !this.fiveStarted) {
+            this.fiveStarted = true;
+            this.tapFive.start();
+        }
+        if (this.tapThree.done && !this.sixStarted) {
+            this.sixStarted = true;
+            this.tapSix.start();
+        }
+
+
+        if (this.tapSix.done && this.tapThree.done) {
+            this.counter++;
+            if (this.counter > this.delay) {
+                this.restartTaps();
+            }
+        }
+    }
+}
+
+function authorName() {
+    rectMode(CENTER);
+    fill(256);
+    textFont('Courier New', width * 0.02);
+    textAlign(CENTER, CENTER);
+    text("Written By Lucas Polanco", 0.16 * width, 0.975 * height, 0.4 * width, 0.08 * height);
+    rectMode(CORNER);
+}
+
+function title() {
+    rectMode(CENTER);
+    fill(256);
+    let fontSize = width * 0.11;
+    textFont(titleFont, fontSize);
+    textAlign(CENTER, CENTER);
+    text("TAP", 0.3 * width, 0.1 * height,  width * 1, height * 0.2);
+    text("TUNES", 0.6 * width, 0.23 * height,  width * 1, height * 0.2);
+    rectMode(CORNER);
+}
+
 // ----------------------------------
 // Menu Scene
 // Displays animated title, invaders, and Start button
@@ -139,6 +230,7 @@ class MenuScene extends Scene {
         this.optionsButton = new MenuButton(0.5, 0.55, 0.4, buttonHeight, switchScene, "Options", "OPTIONS");
         this.tutorialButton = new MenuButton(0.5, 0.7, 0.4, buttonHeight, switchScene, "Tutorial", "TUTORIAL");
         this.creditsButton = new MenuButton(0.5, 0.85, 0.4, buttonHeight, switchScene, "Credits", "CREDITS");
+        this.GameSimulation = new GameSimulation();
     }
 
     // Handle mouse clicks
@@ -157,8 +249,8 @@ class MenuScene extends Scene {
     }
 
     load() {
+        noCursor();
         menuMusic.loop();
-        bg.filter(BLUR, 20);
     }
 
     unload() {
@@ -173,10 +265,13 @@ class MenuScene extends Scene {
         background(0);
         // image(bg, 0, 0, width, height);
         this.soundVisualizer.draw();
+        this.GameSimulation.draw();
         this.playButton.draw();
         this.optionsButton.draw();
         this.tutorialButton.draw();
         this.creditsButton.draw();
+        authorName();
+        title();
 
         image(menuCursor, mouseX, mouseY, width / 25, width / 25);
     }

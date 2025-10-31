@@ -131,6 +131,8 @@ class Slide {
         vec1.setMag(tapDiameter * width / 2);
         vec1.rotate(-PI / 2);
 
+        stroke(255);
+        strokeWeight(3);
         fill(this.color);
         vec0.rotate(PI);
         beginShape();
@@ -168,6 +170,7 @@ class GameCursor {
     draw() {
         fill(this.color);
         stroke(255);
+        strokeWeight(3);
         circle(mouseX, mouseY, width * gameCursorDiameter);
         line(mouseX, mouseY + width * gameCursorDiameter / 4, mouseX, mouseY - width * gameCursorDiameter / 4);
         line(mouseX + width * gameCursorDiameter / 4, mouseY, mouseX - width * gameCursorDiameter / 4, mouseY);

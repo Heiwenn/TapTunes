@@ -204,6 +204,15 @@ class Position {
     }
 }
 
+function logoScreenText() {
+    rectMode(CENTER);
+    fill(256);
+    textFont('Courier New', width * 0.03);
+    textAlign(CENTER, CENTER);
+    text("PRESS ANYWHERE TO CONTINUE...", 0.5 * width, 0.8 * height, 1 * width, 0.1 * height);
+    rectMode(CORNER);
+}
+
 var continueToMenu = 60 * 4.5;
 
 class LogoScene extends Scene {
@@ -254,6 +263,8 @@ class LogoScene extends Scene {
         this.downAnimation.animate();
         this.rightAnimation.animate();
         this.bounceAnimation.animate();
+
+        logoScreenText();
 
         // if (frameCount > continueToMenu) {
         //     this.switchScene("Menu");

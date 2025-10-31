@@ -15,7 +15,7 @@ function setup() {
   createCanvas(windowWidth, windowWidth * aspectRatio); // set up game canvas
   windowResized();
 
-  noCursor();
+  //noCursor();
 
   // Initialize scenes, each gets a reference to switchScene
   scenes.logo = new LogoScene(switchScene);
@@ -27,6 +27,7 @@ function setup() {
 
   // Start with logo scene
   current = scenes.logo;
+  bg.filter(BLUR, 20);
 }
 
 // ----------------------------------
@@ -46,10 +47,13 @@ function switchScene(nextScene) {
       break;
     case "Credits":
       current = scenes.credits;
+      break;
     case "Options":
       current = scenes.options;
+      break;
     case "Tutorial":
       current = scenes.tutorial;
+      break;
     default:
       break;
   }
@@ -98,5 +102,6 @@ function preload() {
   menuMusic = loadSound(menuSoundTrack);
   menuFont = loadFont(menuFontPath);
   menuCursor = loadImage(menuCursorPath);
+  titleFont = loadFont(titleFontPath);
   console.log("Done Pre-Loading");
 }
