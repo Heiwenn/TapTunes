@@ -1,0 +1,10 @@
+{
+    "title": "Sunshine Whistle",
+    "credits": "Sergio Prosvirini",
+    "difficulties": {
+        "easy": "Sunshine_Whistle_Easy.json",
+        "normal": "Sunshine_Whistle_Normal.json",
+        "hard": "Sunshine_Whistle_Hard.json"
+    },
+    "song": "Sunshine_Whistle.mp3"
+}

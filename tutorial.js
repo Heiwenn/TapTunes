@@ -139,7 +139,6 @@ class TutorialScene extends Scene {
         blurb3();
         blurb4();
 
-
         this.backButton.draw();
         this.cursor.draw();
     }

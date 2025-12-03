@@ -10,6 +10,7 @@
 class GameScene extends Scene {
     constructor(switchScene) {
         super();
+        this.backButton = new ImageButton(0.01, 0.01, 0.05, 0.08, switchScene, "Menu", backButton);
     }
 
     /**
@@ -26,6 +27,7 @@ class GameScene extends Scene {
     }
 
     mouseClicked() {
+        this.backButton.checkClick();
     }
 
     load() {
@@ -41,7 +43,10 @@ class GameScene extends Scene {
     // Draw loop (main game logic per frame)
     // ----------------------------------
     draw() {
-
+        
         background(51, 71, 44);
+        this.backButton.draw();
+
+        image(menuCursor, mouseX, mouseY, width / 25, width / 25);
     }
 }

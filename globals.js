@@ -27,3 +27,14 @@ var perfect = 0.9;
 var great = 0.8;
 var good = 0.6;
 var ok = 0.5;
+
+var sfxVolume = 0.5;
+var masterVolume = 0.5;
+
+var exampleInfo;
+
+var buttonOne = 88;
+var buttonTwo = 67;
+
+var buttonOneString = "x";
+var buttonTwoString = "c";

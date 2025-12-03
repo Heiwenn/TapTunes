@@ -12,6 +12,7 @@ let current;
 // p5.js setup function
 // ----------------------------------
 function setup() {
+  console.log("Done Pre-Loading");
   createCanvas(windowWidth, windowWidth * aspectRatio); // set up game canvas
   windowResized();
 
@@ -24,6 +25,7 @@ function setup() {
   scenes.credits = new CreditsScene(switchScene);
   scenes.tutorial = new TutorialScene(switchScene);
   scenes.options = new OptionsScene(switchScene);
+  scenes.select = new SelectScene(switchScene);
 
   // Start with logo scene
   current = scenes.logo;
@@ -53,6 +55,9 @@ function switchScene(nextScene) {
       break;
     case "Tutorial":
       current = scenes.tutorial;
+      break;
+    case "Select":
+      current = scenes.select;
       break;
     default:
       break;
@@ -87,6 +92,10 @@ function mouseMoved() {
   current.mouseMoved();
 }
 
+function mouseWheel(event) {
+  current.mouseWheel(event);
+}
+
 function windowResized() {
   let winHeight = windowWidth * aspectRatio;
   let winWidth = windowWidth;
@@ -104,5 +113,5 @@ function preload() {
   menuCursor = loadImage(menuCursorPath);
   titleFont = loadFont(titleFontPath);
   backButton = loadImage(backButtonPath);
-  console.log("Done Pre-Loading");
+  exampleInfo = loadJSON('assets/maps/Sunshine_Whistle/info.json');
 }

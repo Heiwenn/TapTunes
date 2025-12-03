@@ -28,6 +28,10 @@ class Scene {
         
     }
 
+    mouseWheel() {
+
+    }
+
     load() {
 
     }

@@ -28,6 +28,7 @@ class Tap {
         let diameter = width * tapDiameter * 3 * (1 - this.counter * 2 / (this.lifeSpan * 60) / 3);
         circle(this.x * width, this.y * height, diameter);
         this.counter++;
+        strokeWeight(1);
     }
 
     checkTap() {
@@ -94,6 +95,7 @@ class Tap {
         textFont('Courier New', width * 0.03);
         textAlign(CENTER, CENTER);
         text(this.number, this.x * width, this.y * height, tapDiameter * width, tapDiameter * width);
+        strokeWeight(1);
         rectMode(CORNER);
     }
 }
@@ -218,5 +220,61 @@ class GameCursor {
         circle(mouseX, mouseY, width * gameCursorDiameter);
         line(mouseX, mouseY + width * gameCursorDiameter / 4, mouseX, mouseY - width * gameCursorDiameter / 4);
         line(mouseX + width * gameCursorDiameter / 4, mouseY, mouseX - width * gameCursorDiameter / 4, mouseY);
+    }
+}
+
+class TextButton {
+    constructor (x, y, w, h, action, argument, text, font_ratio=0.08) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.action = action;
+        this.text = text;
+        this.hovering = false;
+        this.argument = argument;
+        this.font_ratio = font_ratio;
+    }
+
+    mouseCollides() {
+        let mX = mouseX / width;
+        let mY = mouseY / height;
+        let insideX = (mX > this.x - this.w / 2) && (mX < this.x + this.w / 2);
+        let insideY = (mY > this.y - this.h / 2) && (mY < this.y + this.h / 2);
+
+        return (insideX && insideY);        
+    }
+
+    checkMousePosition() {
+        this.hovering = this.mouseCollides();
+    }
+
+    checkClick() {
+        if (this.hovering) {
+            this.action(this.argument);
+        }
+    }
+
+    setText(newText) {
+        this.text = newText;
+    }
+
+
+    draw() {
+        rectMode(CENTER);
+        fill(126, 33, 166, 150);
+        stroke(255);
+        if (this.hovering) {
+            strokeWeight(3);
+        }
+        rect(this.x * width, this.y * height, this.w * width, this.h * height);
+        strokeWeight(1);
+
+        fill(256);
+        textFont(menuFont);
+        textSize(width * this.font_ratio);
+        textAlign(CENTER, CENTER);
+        text(this.text, this.x * width, (this.y  - this.h * 0.1) * height, this.w * width, this.h * height);
+        rectMode(CORNER);
     }
 }

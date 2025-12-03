@@ -14,10 +14,12 @@ class CreditsScene extends Scene {
 
     constructor(switchScene) {
         super();
+        this.backButton = new ImageButton(0.01, 0.01, 0.05, 0.08, switchScene, "Menu", backButton);
     }
 
     // Handle mouse clicks
     mouseClicked() {
+        this.backButton.checkClick();
     }
 
     mouseMoved() {
@@ -35,5 +37,8 @@ class CreditsScene extends Scene {
      */
     draw() {
         background(0);
+        this.backButton.draw();
+
+        image(menuCursor, mouseX, mouseY, width / 25, width / 25);
     }
 }

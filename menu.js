@@ -226,7 +226,7 @@ class MenuScene extends Scene {
 
         let buttonHeight = 0.13
 
-        this.playButton = new MenuButton(0.5, 0.4, 0.4, buttonHeight, switchScene, "Game", "PLAY");
+        this.playButton = new MenuButton(0.5, 0.4, 0.4, buttonHeight, switchScene, "Select", "PLAY");
         this.optionsButton = new MenuButton(0.5, 0.55, 0.4, buttonHeight, switchScene, "Options", "OPTIONS");
         this.tutorialButton = new MenuButton(0.5, 0.7, 0.4, buttonHeight, switchScene, "Tutorial", "TUTORIAL");
         this.creditsButton = new MenuButton(0.5, 0.85, 0.4, buttonHeight, switchScene, "Credits", "CREDITS");
