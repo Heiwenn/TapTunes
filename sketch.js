@@ -103,5 +103,6 @@ function preload() {
   menuFont = loadFont(menuFontPath);
   menuCursor = loadImage(menuCursorPath);
   titleFont = loadFont(titleFontPath);
+  backButton = loadImage(backButtonPath);
   console.log("Done Pre-Loading");
 }

@@ -110,10 +110,22 @@ class Slide {
         this.y4 = y4;
         this.lifeSpan = ls;
         this.slideTime = st;
+        this.timingCircleTime = ls - st;
         this.color = c;
         this.number = n;
+        this.counter = 0;
 
         this.started = false;
+    }
+
+    drawTimingCircle() {
+        if (this.counter / 60 > this.timingCircleTime) return;
+        fill(0, 0, 0, 0);
+        stroke(255);
+        strokeWeight(3);
+        let diameter = width * tapDiameter * 3 * (1 - this.counter * 2 / (this.timingCircleTime * 60) / 3);
+        circle(this.x1 * width, this.y1 * height, diameter);
+        this.counter++;
     }
 
     draw() {
@@ -156,10 +168,42 @@ class Slide {
 
         circle(this.x1 * width, this.y1 * height, width * tapDiameter);
         circle(this.x4 * width, this.y4 * height, width * tapDiameter);
+
+        this.drawTimingCircle();
     }
 }
 
+class ImageButton {
+    constructor (x, y, w, h, action, argument, img) {
+        this.x = x;
+        this.y = y;
+        this.w = w; 
+        this.h = h;
+        this.action = action;
+        this.img = img;
+        this.argument = argument;
+    }
 
+    mouseCollides() {
+        let mX = mouseX / width;
+        let mY = mouseY / height;
+        let insideX = (mX > this.x) && (mX < this.x + this.w);
+        let insideY = (mY > this.y) && (mY < this.y + this.h);
+
+        return (insideX && insideY);        
+    }
+
+    checkClick() {
+        if (this.mouseCollides()) {
+            this.action(this.argument);
+        }
+    }
+
+
+    draw() {
+        image(this.img, this.x * width, this.y * height, this.w * width, this.h * height);
+    }
+}
 
 
 class GameCursor {

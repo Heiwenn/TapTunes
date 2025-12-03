@@ -6,9 +6,9 @@
 
 class TapPractice {
     constructor() {
-        this.tapOne = new Tap(0.1, 0.1, 2, color(188, 49, 247), 1);
-        this.tapTwo = new Tap(0.15, 0.1, 2.5, color(188, 49, 247), 2);
-        this.tapThree = new Tap(0.1, 0.2, 3, color(188, 49, 247), 3);
+        this.tapOne = new Tap(0.2, 0.15, 2, color(188, 49, 247), 1);
+        this.tapTwo = new Tap(0.25, 0.15, 2.5, color(188, 49, 247), 2);
+        this.tapThree = new Tap(0.2, 0.25, 3, color(188, 49, 247), 3);
 
         this.tapOne.start();
         this.tapTwo.start();
@@ -104,12 +104,14 @@ class TutorialScene extends Scene {
         super();
         this.cursor = new GameCursor(color(188, 49, 247, 100));
         this.tapPractice = new TapPractice();
+        this.backButton = new ImageButton(0.01, 0.01, 0.05, 0.08, switchScene, "Menu", backButton);
         this.slide = new Slide(0.1, 0.5, 0.3, 0.6, 0.5, 0.7, 0.9, 0.5, 5, 2, color(188, 49, 247), 3);
     }
 
     // Handle mouse clicks
     mouseClicked() {
         this.tapPractice.checkTaps();
+        this.backButton.checkClick();
     }
 
     mouseMoved() {
@@ -129,12 +131,16 @@ class TutorialScene extends Scene {
         background(0);
         image(bg, -50, -50, width + 100, height + 100);
         this.tapPractice.draw();
-        this.cursor.draw();
+        
         this.slide.draw();
 
         blurb1();
         blurb2();
         blurb3();
         blurb4();
+
+
+        this.backButton.draw();
+        this.cursor.draw();
     }
 }
