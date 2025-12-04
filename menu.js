@@ -126,13 +126,12 @@ class MenuButton {
 
 class GameSimulation {
     constructor() {
-        this.tapOne = new Tap(0.1, 0.1, 1, color(188, 49, 247), 1);
-        this.tapTwo = new Tap(0.15, 0.7, 1.5, color(188, 49, 247), 2);
-        this.tapThree = new Tap(0.3, 0.3, 2, color(188, 49, 247), 3);
-        this.tapFour = new Tap(0.5, 0.95, 1.5, color(188, 49, 247), 4);
-        this.tapFive = new Tap(0.7, 0.15, 1.5, color(188, 49, 247), 5);
-        this.tapSix = new Tap(0.9, 0.9, 1.5, color(188, 49, 247), 6);
-
+        this.tapOne = new Tap(0.1, 0.1, 0, 1, color(188, 49, 247), 1);
+        this.tapTwo = new Tap(0.15, 0.7, 0, 1.5, color(188, 49, 247), 2);
+        this.tapThree = new Tap(0.3, 0.3, 0, 2, color(188, 49, 247), 3);
+        this.tapFour = new Tap(0.5, 0.95, 0, 1.5, color(188, 49, 247), 4);
+        this.tapFive = new Tap(0.7, 0.15, 0, 1.5, color(188, 49, 247), 5);
+        this.tapSix = new Tap(0.9, 0.9, 0, 1.5, color(188, 49, 247), 6);
         this.tapOne.start();
         this.tapTwo.start();
         this.tapThree.start();

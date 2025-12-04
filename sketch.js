@@ -106,6 +106,19 @@ function windowResized() {
   resizeCanvas(winWidth, winHeight);
 }
 
+function loadMaps(data) {
+  console.log(data);
+  for (let mapName of data) {
+      console.log(`Loading map: ${mapName}`);
+      let map = {
+          "info": loadJSON(`assets/maps/${mapName}/info.json`),
+          "bgImage": loadImage(`assets/maps/${mapName}/bg.png`),
+          "audio": loadSound(`assets/maps/${mapName}/audio.mp3`)
+      };
+      mapData[mapName] = map;
+  }
+}
+
 function preload() {
   bg = loadImage(backgroundImage);
   menuMusic = loadSound(menuSoundTrack);
@@ -113,5 +126,5 @@ function preload() {
   menuCursor = loadImage(menuCursorPath);
   titleFont = loadFont(titleFontPath);
   backButton = loadImage(backButtonPath);
-  exampleInfo = loadJSON('assets/maps/Sunshine_Whistle/info.json');
+  const manifest = loadJSON('assets/maps/manifest.json', loadMaps);
 }

@@ -1,10 +1,14 @@
 {
     "title": "Sunshine Whistle",
     "credits": "Sergio Prosvirini",
-    "difficulties": {
-        "easy": "Sunshine_Whistle_Easy.json",
-        "normal": "Sunshine_Whistle_Normal.json",
-        "hard": "Sunshine_Whistle_Hard.json"
-    },
-    "song": "Sunshine_Whistle.mp3"
+    "difficulty": "Easy",
+    "length": 96,
+    "notes": [
+        {"type": "tap", "x":0.01, "y":0.1, "startTime": 1000, "lifespan": 2000, "position": 1, "r":188, "g":235, "b":52, "n": 1},
+        {"type": "tap", "x":0.02, "y":0.2, "startTime": 2000, "lifespan": 2000, "position": 2, "r":255, "g":223, "b":0, "n": 2},
+        {"type": "tap", "x":0.03, "y":0.3, "startTime": 3000, "lifespan": 2000, "position": 1, "r":255, "g":127, "b":39, "n": 3},
+        {"type": "tap", "x":0.04, "y":0.4, "startTime": 4000, "lifespan": 2000, "position": 2, "r":163, "g":73, "b":164, "n": 4},
+        {"type": "tap", "x":0.05, "y":0.5, "startTime": 5000, "lifespan": 2000, "position": 0, "r":0, "g":162, "b":232, "n": 5},
+        {"type": "tap", "x":0.06, "y":0.6, "startTime": 6000, "lifespan": 2000, "position": 3, "r":34, "g":177, "b":76, "n": 6}
+    ]
 }

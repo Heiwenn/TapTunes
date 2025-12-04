@@ -1,14 +1,15 @@
 
 
 class Tap {
-    constructor(x, y, ls, c, n) {
+    constructor(x, y, st, ls, c, n) {
         this.x = x;
         this.y = y;
         this.color = c;
         this.lifeSpan = ls;
         this.number = n;
+        this.startTime = st;
 
-        this.counter = 0;
+        this.time = 0;
 
         this.started = false;
         this.done = false;
@@ -21,19 +22,21 @@ class Tap {
     }
 
     drawTimingCircle() {
-        this.done = this.counter > this.lifeSpan * 60;
+        this.done = this.time >= this.startTime + this.lifeSpan;
         fill(0, 0, 0, 0);
         stroke(255);
         strokeWeight(3);
-        let diameter = width * tapDiameter * 3 * (1 - this.counter * 2 / (this.lifeSpan * 60) / 3);
+        let diameter = width * tapDiameter + 2 * width * tapDiameter * (1 - (this.time - this.startTime) / this.lifeSpan);
         circle(this.x * width, this.y * height, diameter);
         this.counter++;
         strokeWeight(1);
     }
 
-    checkTap() {
+    setTime(time) {
+        this.time = time;
+    }
 
-        //console.log("Distance: " + dist(this.x * width, this.y * height, mouseX, mouseY));
+    checkTap() {
         if (dist(this.x * width, this.y * height, mouseX, mouseY) <= tapDiameter * width / 2) {
             this.hit();
             console.log("Tapped");

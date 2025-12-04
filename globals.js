@@ -20,7 +20,7 @@ var menuCursor;
 var titleFont;
 var backButton;
 
-var tapDiameter = 0.06;
+var tapDiameter = 0.08;
 var gameCursorDiameter = 0.03;
 
 var perfect = 0.9;
@@ -31,7 +31,10 @@ var ok = 0.5;
 var sfxVolume = 0.5;
 var masterVolume = 0.5;
 
-var exampleInfo;
+var mapData = {};
+var currentMap = null;
+var currentScore = 0;
+var currentCombo = 0;
 
 var buttonOne = 88;
 var buttonTwo = 67;

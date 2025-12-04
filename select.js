@@ -20,7 +20,7 @@ class SelectCard {
         let insideX = (mX > this.x - this.w / 2) && (mX < this.x + this.w / 2);
         let insideY = (mY > this.y - this.h / 2) && (mY < this.y + this.h / 2);
 
-        return (insideX && insideY);        
+        return (insideX && insideY);
     }
 
     checkMousePosition() {
@@ -68,44 +68,52 @@ class SelectScene extends Scene {
         this.backButton = new ImageButton(0.01, 0.01, 0.05, 0.08, switchScene, "Menu", backButton);
         this.exampleImage = loadImage('assets/maps/Sunshine_Whistle/bg.png');
         this.cards = [];
-        this.mapInfo = [];
 
-        //this.exampleInfo = loadJSON('assets/maps/Sunshine_Whistle/info.json');
-        this.exampleImage = loadImage('assets/maps/Sunshine_Whistle/bg.png');
-        for (let i = 0; i < 10; i++) {
-            let y = 0.5 - i * 0.11;
-            let x = 2.78 - Math.sqrt((4 - (y - 0.5) * (y - 0.5)));
-            let card = new SelectCard(x, y, this.exampleImage, exampleInfo.title, exampleInfo.credits);
-            this.cards.push(card);
+        for (let map in mapData) {
+            this.cards.push(
+                new SelectCard(2.78 - Math.sqrt((4 - (this.cards.length * 0.11) * (this.cards.length * 0.11 - 0.5))), 
+                0.5 - this.cards.length * 0.11, 
+                mapData[map].bgImage, 
+                mapData[map].info.title, 
+                mapData[map].info.credits, 
+                this.changeSelection.bind(this), 
+                mapData[map]
+            ));
         }
 
         this.selection = null;
+        this.playButton = new TextButton(0.25, 0.85, 0.2, 0.1, this.startGame.bind(this), null, "Play");
+    }
 
-        //this.exampleCard = new SelectCard(0.79, 0.5, this.exampleImage, exampleInfo.title, exampleInfo.credits);
+    startGame() {
+        if (this.selection != null) {
+            currentMap = this.selection;
+            switchScene("Game");
+        }
     }
 
 
-    /**
-     * w:87, a:65, s:83, d:68
-     * Check if a key of importance is pressed.
-     * Because of issues with multiple key pressed on any keypress we check
-     * if a key of importanec is down.
-     */
+    changeSelection(newSelection) {
+        this.selection?.audio.stop();
+        this.selection = newSelection;
+        this.selection.audio.loop();
+    }
+
+
     keyPressed() {
     }
 
-    // Check if a key is released
-    keyReleased() {
-    }
 
     mouseClicked() {
         this.backButton.checkClick();
+        this.playButton.checkClick();
         this.cards.forEach(card => {
             card.checkClick();
         });
     }
 
     mouseMoved() {
+        this.playButton.checkMousePosition();
         this.cards.forEach(card => {
             card.checkMousePosition();
         });
@@ -132,7 +140,10 @@ class SelectScene extends Scene {
     }
 
     unload() {
-
+        if (this.selection != null) {
+            this.selection.audio.stop();
+            this.selection = null;
+        }
     }
 
     // ----------------------------------
@@ -140,19 +151,38 @@ class SelectScene extends Scene {
     // ----------------------------------
     draw() {
         image(bg, -50, -50, width + 100, height + 100);
-        this.backButton.draw();
+        
         //this.exampleCard.draw();
         this.cards.forEach(card => {
             card.draw();
         });
 
-        fill(0,0,0, 150);
+        fill(0, 0, 0, 150);
         noStroke();
         rect(0, 0, width * 0.5, height);
 
-        image(menuCursor, mouseX, mouseY, width / 25, width / 25);
-        if (this.selection != null) {
-            image(this.selection.img, width * 0.05, height * 0.05, width * 0.4, height * 0.4);
+        if(this.selection != null) {
+            image(this.selection.bgImage, width * 0.05, height * 0.05, width * 0.4, height * 0.4);
+            
+            let titleText = `Title: ${this.selection.info.title}`;
+            let creditsText = `Music By: ${this.selection.info.credits}`;
+            let difficultyText = `Difficulty: ${this.selection.info.difficulty}`;
+            rectMode(CORNER);
+
+            fill(255);
+            stroke(255);
+            let fontSize = width * 0.02;
+            textFont('Courier New', fontSize);
+            textAlign(LEFT, CENTER);
+            text(titleText, (0.05) * width, (0.46) * height, 0.5 * width, 0.1 * height);
+            text(creditsText, (0.05) * width, (0.52) * height, 0.5 * width, 0.1 * height);
+            text(difficultyText, (0.05) * width, (0.58) * height, 0.5 * width, 0.1 * height);
+            
         }
+
+        this.backButton.draw();
+        this.playButton.draw();
+        
+        image(menuCursor, mouseX, mouseY, width / 25, width / 25);
     }
 }

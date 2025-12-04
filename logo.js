@@ -222,8 +222,8 @@ class LogoScene extends Scene {
 
         this.switchScene = switchScene;
 
-        var centeredX = 150;
-        var centeredY = 150;
+        var centeredX = width / 2 - 50;
+        var centeredY = height / 2 - 50;
 
         // Define Letters
         this.upperL = new Upper_L(new Position(centeredX - 1400, centeredY), 1);

@@ -11,14 +11,11 @@ class GameScene extends Scene {
     constructor(switchScene) {
         super();
         this.backButton = new ImageButton(0.01, 0.01, 0.05, 0.08, switchScene, "Menu", backButton);
+        this.gameCursor = new GameCursor(color(49, 247, 188, 100));
+        this.playing = false;
+        this.notes = [];
     }
 
-    /**
-     * w:87, a:65, s:83, d:68
-     * Check if a key of importance is pressed.
-     * Because of issues with multiple key pressed on any keypress we check
-     * if a key of importanec is down.
-     */
     keyPressed() {
     }
 
@@ -31,22 +28,57 @@ class GameScene extends Scene {
     }
 
     load() {
+        currentScore = 0;
+        currentCombo = 0;
 
-    } 
+        for (let note of currentMap.info.notes) {
+            if (note.type == "tap") {
+                this.notes.push(new Tap(note.x, note.y, note.startTime, note.lifespan, color(note.r, note.g, note.b), note.n));
+            }
+        }
 
-    unload() {
-        
+        setTimeout(() => {
+            this.start();
+        }, 1000);
+
     }
 
+    start() {
+        this.playing = true;
+        currentMap.audio.play();
+    }
 
-    // ----------------------------------
-    // Draw loop (main game logic per frame)
-    // ----------------------------------
+    pause() {
+
+    }
+
+    continue() {
+
+    }
+
+    unload() {
+        currentMap.audio.stop();
+    }
+
     draw() {
-        
-        background(51, 71, 44);
+        image(currentMap.bgImage, 0, 0, width, height);
+
         this.backButton.draw();
 
-        image(menuCursor, mouseX, mouseY, width / 25, width / 25);
+        let timeElapsed = currentMap.audio.currentTime() * 1000;
+        if (this.playing) {
+            this.notes.forEach(note => {
+                if (note.started) {
+                    if (timeElapsed >= note.startTime + note.lifeSpan) note.done = true;
+                    note.setTime(timeElapsed);
+                    note.draw();
+                } else {
+                    if (timeElapsed >= note.startTime) note.start();
+                }
+            });
+        }
+
+        
+        this.gameCursor.draw();
     }
 }
