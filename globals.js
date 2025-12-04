@@ -12,8 +12,10 @@ var menuFontPath = "assets/fonts/BitcountGridSingle-Light.ttf";
 var menuCursorPath = "assets/images/Purple.png";
 var titleFontPath = "assets/fonts/MomoTrustDisplay-Regular.ttf"
 var backButtonPath = "assets/images/arrow_basic_w.svg"
+var clickPath = "assets/music/click.mp3";
 
 var bg;
+var clickSound;
 var menuMusic;
 var menuFont;
 var menuCursor;
@@ -30,6 +32,8 @@ var ok = 0.5;
 
 var sfxVolume = 0.5;
 var masterVolume = 0.5;
+
+var delay = 2000;
 
 var mapData = {};
 var currentMap = null;

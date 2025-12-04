@@ -23,18 +23,7 @@ class SoundVisualizer {
         image(bg, -50, -50, width + 100, height + 100);
         pop();
 
-        // let spectrum = this.fft.analyze();
-        // let rw = width / (1.1*this.numBars + 0.1);
-
         stroke(255);
-        //fill(247, 99, 222, 100);
-    
-        // for (let i = 0; i < this.numBars; i++) {
-        //     let x = rw * 0.1 + rw * 1.1 * i;
-        //     let rh = height * this.maxHeight * spectrum[i] / 255;
-        //     let y = height - rh;
-        //     rect(x, y, rw, rh);
-        // }
 
         noFill();
         let wave = this.fft.waveform();
@@ -99,6 +88,7 @@ class MenuButton {
 
     checkClick() {
         if (this.hovering) {
+            clickSound.play();
             this.action(this.argument);
         }
     }
@@ -135,9 +125,6 @@ class GameSimulation {
         this.tapOne.start();
         this.tapTwo.start();
         this.tapThree.start();
-        // this.tapFour.start();
-        // this.tapFive.start();
-        // this.tapSix.start();
 
         this.fourStarted = false;
         this.fiveStarted = false;
@@ -151,9 +138,6 @@ class GameSimulation {
         this.tapOne.start();
         this.tapTwo.start();
         this.tapThree.start();
-        // this.tapFour.start();
-        // this.tapFive.start();
-        // this.tapSix.start();
 
         this.fourStarted = false;
         this.fiveStarted = false;
@@ -262,7 +246,6 @@ class MenuScene extends Scene {
      */
     draw() {
         background(0);
-        // image(bg, 0, 0, width, height);
         this.soundVisualizer.draw();
         this.GameSimulation.draw();
         this.playButton.draw();

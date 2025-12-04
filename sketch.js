@@ -7,16 +7,18 @@
 // Store all available scenes and track which one is active
 let scenes = {};
 let current;
-
+var canvas;
 // ----------------------------------
 // p5.js setup function
 // ----------------------------------
 function setup() {
   console.log("Done Pre-Loading");
-  createCanvas(windowWidth, windowWidth * aspectRatio); // set up game canvas
+  canvas = createCanvas(windowWidth, windowWidth * aspectRatio); // set up game canvas
+  canvas.parent('game-container');
   windowResized();
 
-  //noCursor();
+  outputVolume(masterVolume);
+  clickSound.setVolume(sfxVolume);
 
   // Initialize scenes, each gets a reference to switchScene
   scenes.logo = new LogoScene(switchScene);
@@ -122,6 +124,7 @@ function loadMaps(data) {
 function preload() {
   bg = loadImage(backgroundImage);
   menuMusic = loadSound(menuSoundTrack);
+  clickSound = loadSound(clickPath);
   menuFont = loadFont(menuFontPath);
   menuCursor = loadImage(menuCursorPath);
   titleFont = loadFont(titleFontPath);

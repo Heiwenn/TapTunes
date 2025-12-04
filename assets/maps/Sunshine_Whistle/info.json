@@ -3,12 +3,153 @@
     "credits": "Sergio Prosvirini",
     "difficulty": "Easy",
     "length": 96,
-    "notes": [
-        {"type": "tap", "x":0.01, "y":0.1, "startTime": 1000, "lifespan": 2000, "position": 1, "r":188, "g":235, "b":52, "n": 1},
-        {"type": "tap", "x":0.02, "y":0.2, "startTime": 2000, "lifespan": 2000, "position": 2, "r":255, "g":223, "b":0, "n": 2},
-        {"type": "tap", "x":0.03, "y":0.3, "startTime": 3000, "lifespan": 2000, "position": 1, "r":255, "g":127, "b":39, "n": 3},
-        {"type": "tap", "x":0.04, "y":0.4, "startTime": 4000, "lifespan": 2000, "position": 2, "r":163, "g":73, "b":164, "n": 4},
-        {"type": "tap", "x":0.05, "y":0.5, "startTime": 5000, "lifespan": 2000, "position": 0, "r":0, "g":162, "b":232, "n": 5},
-        {"type": "tap", "x":0.06, "y":0.6, "startTime": 6000, "lifespan": 2000, "position": 3, "r":34, "g":177, "b":76, "n": 6}
-    ]
+    "notes": 
+    [
+    { "type": "tap", "x": 0.2, "y": 0.3, "endTime": 0, "position": 0, "r": 188, "g": 235, "b": 52, "n": 0},
+    { "type": "tap", "x": 0.4, "y": 0.4, "endTime": 380, "position": 1, "r": 188, "g": 235, "b": 52, "n": 1},
+    { "type": "tap", "x": 0.6, "y": 0.5, "endTime": 760, "position": 2, "r": 188, "g": 235, "b": 52, "n": 2},
+    { "type": "tap", "x": 0.3, "y": 0.6, "endTime": 1140, "position": 3, "r": 188, "g": 235, "b": 52, "n": 3},
+    { "type": "tap", "x": 0.7, "y": 0.2, "endTime": 1519, "position": 0, "r": 188, "g": 235, "b": 52, "n": 4},
+    { "type": "tap", "x": 0.5, "y": 0.7, "endTime": 1899, "position": 1, "r": 188, "g": 235, "b": 52, "n": 5},
+    
+    { "type": "tap", "x": 0.25, "y": 0.4, "endTime": 2278, "position": 2, "r": 255, "g": 223, "b": 0, "n": 0},
+    { "type": "tap", "x": 0.75, "y": 0.5, "endTime": 2658, "position": 3, "r": 255, "g": 223, "b": 0, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.3, "endTime": 3038, "position": 0, "r": 255, "g": 223, "b": 0, "n": 2},
+    { "type": "tap", "x": 0.6, "y": 0.6, "endTime": 3417, "position": 1, "r": 255, "g": 223, "b": 0, "n": 3},
+    { "type": "tap", "x": 0.35, "y": 0.45, "endTime": 3797, "position": 2, "r": 255, "g": 223, "b": 0, "n": 4},
+    { "type": "tap", "x": 0.65, "y": 0.55, "endTime": 4177, "position": 3, "r": 255, "g": 223, "b": 0, "n": 5},
+    { "type": "tap", "x": 0.5, "y": 0.35, "endTime": 4556, "position": 0, "r": 255, "g": 223, "b": 0, "n": 6},
+    
+    { "type": "tap", "x": 0.8, "y": 0.4, "endTime": 4936, "position": 1, "r": 255, "g": 127, "b": 39, "n": 0},
+    { "type": "tap", "x": 0.4, "y": 0.3, "endTime": 5316, "position": 2, "r": 255, "g": 127, "b": 39, "n": 1},
+    { "type": "tap", "x": 0.5, "y": 0.7, "endTime": 5886, "position": 3, "r": 255, "g": 127, "b": 39, "n": 2},
+    { "type": "tap", "x": 0.4, "y": 0.4, "endTime": 6266, "position": 0, "r": 255, "g": 127, "b": 39, "n": 3},
+    
+    { "type": "tap", "x": 0.25, "y": 0.55, "endTime": 6646, "position": 1, "r": 102, "g": 153, "b": 255, "n": 0},
+    { "type": "tap", "x": 0.5, "y": 0.3, "endTime": 7026, "position": 2, "r": 102, "g": 153, "b": 255, "n": 1},
+    { "type": "tap", "x": 0.7, "y": 0.2, "endTime": 7596, "position": 3, "r": 102, "g": 153, "b": 255, "n": 2},
+    { "type": "tap", "x": 0.4, "y": 0.7, "endTime": 7976, "position": 0, "r": 102, "g": 153, "b": 255, "n": 3},
+    
+    { "type": "tap", "x": 0.2, "y": 0.3, "endTime": 8356, "position": 1, "r": 255, "g": 102, "b": 102, "n": 0},
+    { "type": "tap", "x": 0.4, "y": 0.7, "endTime": 8926, "position": 2, "r": 255, "g": 102, "b": 102, "n": 1},
+    { "type": "tap", "x": 0.25, "y": 0.5, "endTime": 9306, "position": 3, "r": 255, "g": 102, "b": 102, "n": 2},
+    { "type": "tap", "x": 0.4, "y": 0.6, "endTime": 9876, "position": 0, "r": 52, "g": 188, "b": 235, "n": 0},
+    
+    { "type": "tap", "x": 0.3, "y": 0.5, "endTime": 10636, "position": 1, "r": 52, "g": 188, "b": 235, "n": 1},
+    { "type": "tap", "x": 0.5, "y": 0.6, "endTime": 11016, "position": 2, "r": 52, "g": 188, "b": 235, "n": 2},
+    { "type": "tap", "x": 0.6, "y": 0.5, "endTime": 11396, "position": 3, "r": 52, "g": 188, "b": 235, "n": 3},
+    { "type": "tap", "x": 0.7, "y": 0.3, "endTime": 11681, "position": 0, "r": 255, "g": 170, "b": 0, "n": 0},
+    
+    { "type": "tap", "x": 0.25, "y": 0.6, "endTime": 12061, "position": 1, "r": 255, "g": 170, "b": 0, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.4, "endTime": 12631, "position": 2, "r": 255, "g": 170, "b": 0, "n": 2},
+    { "type": "tap", "x": 0.8, "y": 0.7, "endTime": 13201, "position": 3, "r": 255, "g": 170, "b": 0, "n": 3},
+    { "type": "tap", "x": 0.3, "y": 0.2, "endTime": 13581, "position": 0, "r": 188, "g": 52, "b": 235, "n": 0},
+    
+    { "type": "tap", "x": 0.45, "y": 0.45, "endTime": 13961, "position": 1, "r": 188, "g": 52, "b": 235, "n": 1},
+    { "type": "tap", "x": 0.35, "y": 0.35, "endTime": 14341, "position": 2, "r": 188, "g": 52, "b": 235, "n": 2},
+    { "type": "tap", "x": 0.25, "y": 0.7, "endTime": 14721, "position": 3, "r": 188, "g": 52, "b": 235, "n": 3},
+    { "type": "tap", "x": 0.7, "y": 0.3, "endTime": 15101, "position": 0, "r": 0, "g": 255, "b": 100, "n": 0},
+    
+    { "type": "tap", "x": 0.5, "y": 0.4, "endTime": 15481, "position": 1, "r": 0, "g": 255, "b": 100, "n": 1},
+    { "type": "tap", "x": 0.8, "y": 0.3, "endTime": 15861, "position": 2, "r": 0, "g": 255, "b": 100, "n": 2},
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 16241, "position": 3, "r": 0, "g": 255, "b": 100, "n": 3},
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 16621, "position": 0, "r": 255, "g": 0, "b": 255, "n": 0},
+    
+    { "type": "tap", "x": 0.2, "y": 0.3, "endTime": 17001, "position": 1, "r": 255, "g": 0, "b": 255, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.4, "endTime": 17381, "position": 2, "r": 255, "g": 0, "b": 255, "n": 2},
+    { "type": "tap", "x": 0.3, "y": 0.3, "endTime": 17761, "position": 3, "r": 255, "g": 0, "b": 255, "n": 3},
+    { "type": "tap", "x": 0.5, "y": 0.2, "endTime": 18141, "position": 0, "r": 255, "g": 102, "b": 178, "n": 0},
+    
+    { "type": "tap", "x": 0.75, "y": 0.4, "endTime": 18521, "position": 1, "r": 255, "g": 102, "b": 178, "n": 1},
+    { "type": "tap", "x": 0.6, "y": 0.3, "endTime": 18901, "position": 2, "r": 255, "g": 102, "b": 178, "n": 2},
+    { "type": "tap", "x": 0.7, "y": 0.2, "endTime": 19281, "position": 3, "r": 255, "g": 102, "b": 178, "n": 3},
+    { "type": "tap", "x": 0.2, "y": 0.4, "endTime": 19566, "position": 0, "r": 102, "g": 255, "b": 178, "n": 0},
+    
+    { "type": "tap", "x": 0.4, "y": 0.3, "endTime": 19946, "position": 1, "r": 102, "g": 255, "b": 178, "n": 1},
+    { "type": "tap", "x": 0.3, "y": 0.5, "endTime": 20326, "position": 2, "r": 102, "g": 255, "b": 178, "n": 2},
+    { "type": "tap", "x": 0.5, "y": 0.4, "endTime": 20706, "position": 3, "r": 102, "g": 255, "b": 178, "n": 3},
+    { "type": "tap", "x": 0.8, "y": 0.3, "endTime": 21086, "position": 0, "r": 255, "g": 127, "b": 39, "n": 0},
+    
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 21466, "position": 1, "r": 255, "g": 127, "b": 39, "n": 1},
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 21846, "position": 2, "r": 255, "g": 127, "b": 39, "n": 2},
+    { "type": "tap", "x": 0.25, "y": 0.35, "endTime": 22226, "position": 3, "r": 255, "g": 127, "b": 39, "n": 3},
+    { "type": "tap", "x": 0.4, "y": 0.25, "endTime": 22606, "position": 0, "r": 188, "g": 235, "b": 52, "n": 0},
+    
+    { "type": "tap", "x": 0.3, "y": 0.4, "endTime": 22986, "position": 1, "r": 188, "g": 235, "b": 52, "n": 1},
+    { "type": "tap", "x": 0.5, "y": 0.3, "endTime": 23366, "position": 2, "r": 188, "g": 235, "b": 52, "n": 2},
+    { "type": "tap", "x": 0.8, "y": 0.4, "endTime": 23746, "position": 3, "r": 188, "g": 235, "b": 52, "n": 3},
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 24126, "position": 0, "r": 255, "g": 223, "b": 0, "n": 0},
+    
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 24506, "position": 1, "r": 255, "g": 223, "b": 0, "n": 1},
+    { "type": "tap", "x": 0.2, "y": 0.3, "endTime": 24886, "position": 2, "r": 255, "g": 223, "b": 0, "n": 2},
+    { "type": "tap", "x": 0.4, "y": 0.4, "endTime": 25266, "position": 3, "r": 255, "g": 223, "b": 0, "n": 3},
+    { "type": "tap", "x": 0.3, "y": 0.3, "endTime": 25646, "position": 0, "r": 255, "g": 127, "b": 39, "n": 0},
+    
+    { "type": "tap", "x": 0.5, "y": 0.2, "endTime": 26026, "position": 1, "r": 255, "g": 127, "b": 39, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.6, "endTime": 26406, "position": 2, "r": 255, "g": 127, "b": 39, "n": 2},
+    { "type": "tap", "x": 0.7, "y": 0.2, "endTime": 26976, "position": 3, "r": 102, "g": 153, "b": 255, "n": 0},
+    { "type": "tap", "x": 0.2, "y": 0.4, "endTime": 27356, "position": 0, "r": 102, "g": 153, "b": 255, "n": 1},
+    
+    { "type": "tap", "x": 0.4, "y": 0.3, "endTime": 27736, "position": 1, "r": 102, "g": 153, "b": 255, "n": 2},
+    { "type": "tap", "x": 0.3, "y": 0.5, "endTime": 28116, "position": 2, "r": 102, "g": 153, "b": 255, "n": 3},
+    { "type": "tap", "x": 0.8, "y": 0.3, "endTime": 28876, "position": 3, "r": 255, "g": 102, "b": 102, "n": 0},
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 29256, "position": 0, "r": 255, "g": 102, "b": 102, "n": 1},
+    
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 29636, "position": 1, "r": 255, "g": 102, "b": 102, "n": 2},
+    { "type": "tap", "x": 0.25, "y": 0.35, "endTime": 30016, "position": 2, "r": 52, "g": 188, "b": 235, "n": 0},
+    { "type": "tap", "x": 0.4, "y": 0.25, "endTime": 30396, "position": 3, "r": 52, "g": 188, "b": 235, "n": 1},
+    { "type": "tap", "x": 0.3, "y": 0.4, "endTime": 30776, "position": 0, "r": 52, "g": 188, "b": 235, "n": 2},
+    
+    { "type": "tap", "x": 0.5, "y": 0.3, "endTime": 31156, "position": 1, "r": 52, "g": 188, "b": 235, "n": 3},
+    { "type": "tap", "x": 0.2, "y": 0.5, "endTime": 32676, "position": 2, "r": 255, "g": 170, "b": 0, "n": 0},
+    { "type": "tap", "x": 0.8, "y": 0.4, "endTime": 34196, "position": 3, "r": 255, "g": 170, "b": 0, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.7, "endTime": 35716, "position": 0, "r": 255, "g": 170, "b": 0, "n": 2},
+    
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 37236, "position": 1, "r": 255, "g": 170, "b": 0, "n": 3},
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 37806, "position": 2, "r": 188, "g": 52, "b": 235, "n": 0},
+    { "type": "tap", "x": 0.25, "y": 0.35, "endTime": 38376, "position": 3, "r": 188, "g": 52, "b": 235, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.25, "endTime": 38946, "position": 0, "r": 0, "g": 255, "b": 100, "n": 0},
+    
+    { "type": "tap", "x": 0.3, "y": 0.4, "endTime": 39326, "position": 1, "r": 0, "g": 255, "b": 100, "n": 1},
+    { "type": "tap", "x": 0.5, "y": 0.3, "endTime": 39706, "position": 2, "r": 0, "g": 255, "b": 100, "n": 2},
+    { "type": "tap", "x": 0.8, "y": 0.4, "endTime": 40086, "position": 3, "r": 0, "g": 255, "b": 100, "n": 3},
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 40466, "position": 0, "r": 255, "g": 0, "b": 255, "n": 0},
+    
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 41036, "position": 1, "r": 255, "g": 0, "b": 255, "n": 1},
+    { "type": "tap", "x": 0.2, "y": 0.3, "endTime": 41606, "position": 2, "r": 255, "g": 0, "b": 255, "n": 2},
+    { "type": "tap", "x": 0.4, "y": 0.4, "endTime": 41986, "position": 3, "r": 255, "g": 102, "b": 178, "n": 0},
+    { "type": "tap", "x": 0.3, "y": 0.3, "endTime": 42366, "position": 0, "r": 255, "g": 102, "b": 178, "n": 1},
+    
+    { "type": "tap", "x": 0.5, "y": 0.2, "endTime": 42936, "position": 1, "r": 255, "g": 102, "b": 178, "n": 2},
+    { "type": "tap", "x": 0.75, "y": 0.4, "endTime": 43316, "position": 2, "r": 255, "g": 102, "b": 178, "n": 3},
+    { "type": "tap", "x": 0.3, "y": 0.7, "endTime": 43886, "position": 3, "r": 102, "g": 255, "b": 178, "n": 0},
+    { "type": "tap", "x": 0.2, "y": 0.4, "endTime": 44456, "position": 0, "r": 102, "g": 255, "b": 178, "n": 1},
+    
+    { "type": "tap", "x": 0.4, "y": 0.3, "endTime": 44836, "position": 1, "r": 102, "g": 255, "b": 178, "n": 2},
+    { "type": "tap", "x": 0.3, "y": 0.5, "endTime": 45216, "position": 2, "r": 255, "g": 127, "b": 39, "n": 0},
+    { "type": "tap", "x": 0.2, "y": 0.7, "endTime": 45786, "position": 3, "r": 255, "g": 127, "b": 39, "n": 1},
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 46356, "position": 0, "r": 255, "g": 127, "b": 39, "n": 2},
+    
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 46736, "position": 1, "r": 188, "g": 235, "b": 52, "n": 0},
+    { "type": "tap", "x": 0.25, "y": 0.35, "endTime": 47306, "position": 2, "r": 188, "g": 235, "b": 52, "n": 1},
+    { "type": "tap", "x": 0.4, "y": 0.25, "endTime": 47686, "position": 3, "r": 188, "g": 235, "b": 52, "n": 2},
+    { "type": "tap", "x": 0.3, "y": 0.4, "endTime": 48066, "position": 0, "r": 188, "g": 235, "b": 52, "n": 3},
+    
+    { "type": "tap", "x": 0.5, "y": 0.3, "endTime": 48446, "position": 1, "r": 255, "g": 223, "b": 0, "n": 0},
+    { "type": "tap", "x": 0.8, "y": 0.4, "endTime": 48826, "position": 2, "r": 255, "g": 223, "b": 0, "n": 1},
+    { "type": "tap", "x": 0.6, "y": 0.2, "endTime": 49206, "position": 3, "r": 255, "g": 223, "b": 0, "n": 2},
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 49586, "position": 0, "r": 255, "g": 223, "b": 0, "n": 3},
+    
+    { "type": "tap", "x": 0.8, "y": 0.5, "endTime": 50156, "position": 1, "r": 255, "g": 127, "b": 39, "n": 0},
+    { "type": "tap", "x": 0.6, "y": 0.6, "endTime": 50536, "position": 2, "r": 255, "g": 127, "b": 39, "n": 1},
+    { "type": "tap", "x": 0.7, "y": 0.7, "endTime": 50916, "position": 3, "r": 255, "g": 127, "b": 39, "n": 2},
+    { "type": "tap", "x": 0.25, "y": 0.5, "endTime": 51296, "position": 0, "r": 255, "g": 127, "b": 39, "n": 3},
+    
+    { "type": "tap", "x": 0.4, "y": 0.6, "endTime": 51676, "position": 1, "r": 102, "g": 153, "b": 255, "n": 0},
+    { "type": "tap", "x": 0.3, "y": 0.7, "endTime": 52056, "position": 2, "r": 102, "g": 153, "b": 255, "n": 1},
+    { "type": "tap", "x": 0.8, "y": 0.6, "endTime": 52816, "position": 3, "r": 102, "g": 153, "b": 255, "n": 2},
+    { "type": "tap", "x": 0.3, "y": 0.5, "endTime": 53576, "position": 0, "r": 255, "g": 102, "b": 102, "n": 0},
+    
+    { "type": "tap", "x": 0.7, "y": 0.4, "endTime": 55106, "position": 1, "r": 255, "g": 102, "b": 102, "n": 1}
+]
 }

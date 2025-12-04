@@ -33,7 +33,7 @@ class GameScene extends Scene {
 
         for (let note of currentMap.info.notes) {
             if (note.type == "tap") {
-                this.notes.push(new Tap(note.x, note.y, note.startTime, note.lifespan, color(note.r, note.g, note.b), note.n));
+                this.notes.push(new Tap(note.x, note.y, note.endTime, delay, color(note.r, note.g, note.b), note.n));
             }
         }
 
@@ -69,11 +69,11 @@ class GameScene extends Scene {
         if (this.playing) {
             this.notes.forEach(note => {
                 if (note.started) {
-                    if (timeElapsed >= note.startTime + note.lifeSpan) note.done = true;
+                    if (timeElapsed >= note.endTime) note.done = true;
                     note.setTime(timeElapsed);
                     note.draw();
                 } else {
-                    if (timeElapsed >= note.startTime) note.start();
+                    if (timeElapsed >= note.endTime - delay) note.start();
                 }
             });
         }

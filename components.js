@@ -1,13 +1,13 @@
 
 
 class Tap {
-    constructor(x, y, st, ls, c, n) {
+    constructor(x, y, et, ls, c, n) {
         this.x = x;
         this.y = y;
         this.color = c;
         this.lifeSpan = ls;
         this.number = n;
-        this.startTime = st;
+        this.endTime = et;
 
         this.time = 0;
 
@@ -22,11 +22,11 @@ class Tap {
     }
 
     drawTimingCircle() {
-        this.done = this.time >= this.startTime + this.lifeSpan;
+        this.done = this.time >= this.endTime;
         fill(0, 0, 0, 0);
         stroke(255);
         strokeWeight(3);
-        let diameter = width * tapDiameter + 2 * width * tapDiameter * (1 - (this.time - this.startTime) / this.lifeSpan);
+        let diameter = width * tapDiameter + 2 * width * tapDiameter * ((this.endTime - this.time) / this.lifeSpan);
         circle(this.x * width, this.y * height, diameter);
         this.counter++;
         strokeWeight(1);
@@ -64,26 +64,6 @@ class Tap {
 
     }
 
-    perfect() {
-
-    }
-
-    great() {
-
-    }
-
-    good() {
-
-    }
-
-    ok() {
-
-    }
-
-    fail() {
-
-    }
-
     draw() {
         if (!this.started || this.done) return;
 
@@ -104,7 +84,7 @@ class Tap {
 }
 
 class Slide {
-    constructor(x1, y1, x2, y2, x3, y3, x4, y4, ls, st, c, n) {
+    constructor(x1, y1, x2, y2, x3, y3, x4, y4, et, ls, st, c, n) {
         this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
@@ -113,27 +93,49 @@ class Slide {
         this.y2 = y2;
         this.y3 = y3;
         this.y4 = y4;
+        this.endTime = et;
         this.lifeSpan = ls;
         this.slideTime = st;
         this.timingCircleTime = ls - st;
         this.color = c;
         this.number = n;
         this.counter = 0;
-
+        this.time = 0;
         this.started = false;
     }
 
+    start() {
+        this.started = true;
+        this.done = false;
+        this.counter = 0;
+    }
+
     drawTimingCircle() {
-        if (this.counter / 60 > this.timingCircleTime) return;
+        if (this.time >= this.endTime - this.slideTime) return;
         fill(0, 0, 0, 0);
         stroke(255);
         strokeWeight(3);
-        let diameter = width * tapDiameter * 3 * (1 - this.counter * 2 / (this.timingCircleTime * 60) / 3);
+        let diameter = width * tapDiameter + 2 * width * tapDiameter * ((this.endTime - this.time - this.slideTime) / this.timingCircleTime);
         circle(this.x1 * width, this.y1 * height, diameter);
         this.counter++;
     }
 
+    moveBall() {
+        if (this.time < this.endTime - this.slideTime) return;
+        let xp05 = bezierPoint(this.x1 * width, this.x2 * width, this.x3 * width, this.x4 * width, 1 - (this.endTime - this.time) / this.slideTime);
+        let yp05 = bezierPoint(this.y1 * height, this.y2 * height, this.y3 * height, this.y4 * height, 1 - (this.endTime - this.time) / this.slideTime);
+        circle(xp05, yp05, width * tapDiameter * 0.9);
+
+    }
+
+    setTime(time) {
+        this.time = time;
+    }
+
     draw() {
+        if (!this.started || this.done) return;
+        if (this.time >= this.endTime) this.done = true;
+
         let xp0 = bezierPoint(this.x1 * width, this.x2 * width, this.x3 * width, this.x4 * width, 0.01);
         let yp0 = bezierPoint(this.y1 * height, this.y2 * height, this.y3 * height, this.y4 * height, 0.01);
 
@@ -169,12 +171,20 @@ class Slide {
         let xp05 = bezierPoint(this.x1 * width, this.x2 * width, this.x3 * width, this.x4 * width, 0.5);
         let yp05 = bezierPoint(this.y1 * height, this.y2 * height, this.y3 * height, this.y4 * height, 0.5);
 
-        circle(xp05, yp05, width * tapDiameter);
-
         circle(this.x1 * width, this.y1 * height, width * tapDiameter);
         circle(this.x4 * width, this.y4 * height, width * tapDiameter);
 
+        rectMode(CENTER);
+        fill(255);
+        stroke(255);
+        textFont('Courier New', width * 0.03);
+        textAlign(CENTER, CENTER);
+        text(this.number, this.x1 * width, this.y1 * height, tapDiameter * width, tapDiameter * width);
+        strokeWeight(1);
+        rectMode(CORNER);
+
         this.drawTimingCircle();
+        this.moveBall();
     }
 }
 
@@ -200,6 +210,7 @@ class ImageButton {
 
     checkClick() {
         if (this.mouseCollides()) {
+            clickSound.play();
             this.action(this.argument);
         }
     }
@@ -254,6 +265,7 @@ class TextButton {
 
     checkClick() {
         if (this.hovering) {
+            clickSound.play();
             this.action(this.argument);
         }
     }
